@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aroma & Hoja | Infusiones y Té Artesanal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); }
+  </style>
+</head>
+<body class="bg-stone-50 text-stone-800 min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <header class="border-b border-stone-200 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <span class="text-3xl">🍃</span>
+        <span class="text-2xl font-bold tracking-tight text-emerald-950">Aroma & Hoja</span>
+      </div>
+      <div class="text-sm font-medium text-stone-600 flex items-center space-x-4">
+        <span>📍 Tiendas: <strong>Madrid</strong> & <strong>Barcelona</strong></span>
+        <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-semibold">ERP Cloud Conectado</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="max-w-6xl mx-auto px-6 py-10 flex-grow">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-stone-900 tracking-tight mb-4">
+        Infusiones botánicas para cada momento.
+      </h1>
+      <p class="text-stone-600 text-lg">
+        Seleccionadas en origen, preparadas artesanalmente y gestionadas en tiempo real con Google Cloud.
+      </p>
+    </div>
+
+    <!-- Catálogo de Productos -->
+    <div class="grid md:grid-cols-3 gap-8">
+      
+      <!-- Producto 1 -->
+      <div class="glass-card rounded-2xl p-6 border border-stone-200 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between">
+        <div>
+          <div class="h-44 bg-emerald-50 rounded-xl flex items-center justify-center text-7xl mb-4">🫖</div>
+          <span class="text-xs uppercase tracking-wider font-bold text-emerald-700">Relajación</span>
+          <h3 class="text-xl font-bold mt-1 text-stone-900">Manzanilla Real & Lavanda</h3>
+          <p class="text-stone-600 text-sm mt-2">Flores enteras de manzanilla silvestre combinadas con toques florales de lavanda del Mediterráneo.</p>
+        </div>
+        <div class="mt-6 flex items-center justify-between">
+          <span class="text-2xl font-bold text-stone-900">12,50 €</span>
+          <button onclick="realizarPedido('INF-01', 'Manzanilla Real & Lavanda', 12.50)" class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-4 py-2.5 rounded-xl text-sm transition shadow-sm">
+            Pedir ahora
+          </button>
+        </div>
+      </div>
+
+      <!-- Producto 2 -->
+      <div class="glass-card rounded-2xl p-6 border border-stone-200 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between">
+        <div>
+          <div class="h-44 bg-amber-50 rounded-xl flex items-center justify-center text-7xl mb-4">🌿</div>
+          <span class="text-xs uppercase tracking-wider font-bold text-amber-700">Energía</span>
+          <h3 class="text-xl font-bold mt-1 text-stone-900">Té Verde Matcha & Jengibre</h3>
+          <p class="text-stone-600 text-sm mt-2">Poderoso antioxidante con notas picantes de jengibre fresco y cáscara de limón bio.</p>
+        </div>
+        <div class="mt-6 flex items-center justify-between">
+          <span class="text-2xl font-bold text-stone-900">15,00 €</span>
+          <button onclick="realizarPedido('INF-02', 'Té Verde Matcha & Jengibre', 15.00)" class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-4 py-2.5 rounded-xl text-sm transition shadow-sm">
+            Pedir ahora
+          </button>
+        </div>
+      </div>
+
+      <!-- Producto 3 -->
+      <div class="glass-card rounded-2xl p-6 border border-stone-200 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between">
+        <div>
+          <div class="h-44 bg-rose-50 rounded-xl flex items-center justify-center text-7xl mb-4">🌺</div>
+          <span class="text-xs uppercase tracking-wider font-bold text-rose-700">Vitalidad</span>
+          <h3 class="text-xl font-bold mt-1 text-stone-900">Rooibos Vainilla & Frutos Rojos</h3>
+          <p class="text-stone-600 text-sm mt-2">Libre de teína, con vainilla Bourbon natural y trozos deshidratados de arándanos y fresas.</p>
+        </div>
+        <div class="mt-6 flex items-center justify-between">
+          <span class="text-2xl font-bold text-stone-900">13,20 €</span>
+          <button onclick="realizarPedido('INF-03', 'Rooibos Vainilla & Frutos Rojos', 13.20)" class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-4 py-2.5 rounded-xl text-sm transition shadow-sm">
+            Pedir ahora
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Notificación en tiempo real -->
+    <div id="statusModal" class="hidden fixed bottom-6 right-6 bg-white border border-stone-200 shadow-2xl rounded-2xl p-5 max-w-sm z-50">
+      <div class="flex items-center space-x-3 mb-2">
+        <div id="spinner" class="animate-spin rounded-full h-4 w-4 border-2 border-emerald-600 border-t-transparent"></div>
+        <span class="font-bold text-stone-900 text-sm">Flujo ERP Cloud</span>
+      </div>
+      <p id="statusMsg" class="text-xs text-stone-600"></p>
+    </div>
+  </main>
+
+  <script>
+    async function realizarPedido(sku, nombre, precio) {
+      const modal = document.getElementById('statusModal');
+      const msg = document.getElementById('statusMsg');
+      const spinner = document.getElementById('spinner');
+      
+      modal.classList.remove('hidden');
+      spinner.classList.remove('hidden');
+      msg.textContent = `Enviando pedido de "${nombre}" al ERP...`;
+
+      try {
+        const response = await fetch('/api/orders', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ sku, producto: nombre, total: precio, origen: 'Tienda Online' })
+        });
+        const data = await response.json();
+        spinner.classList.add('hidden');
+        msg.textContent = `✅ Pedido #${data.orderId || 'ORD-OK'} creado. Evento enviado a Pub/Sub y Workflows.`;
+        setTimeout(() => modal.classList.add('hidden'), 6000);
+      } catch (err) {
+        spinner.classList.add('hidden');
+        msg.textContent = '❌ Error al comunicar con el backend ERP.';
+      }
+    }
+  </script>
+</body>
+</html>
